@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Día de la Mujer Señorita xd 🌷</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #ffe0eb, #fff5f7, #f8d5ff);
+      color: #7c2850;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .tarjeta {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 35px 25px;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px #a54b7030;
+      border: 1px solid white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .flor {
+      font-size: 65px;
+      animation: flotar 3s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: clamp(30px, 7vw, 43px);
+      margin: 20px 0;
+      color: #c43e76;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #d74782;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #a92760;
+      transform: scale(1.05);
+    }
+
+    #mensaje {
+      display: none;
+      margin-top: 25px;
+      animation: aparecer 1s ease;
+    }
+
+    .corazon {
+      position: fixed;
+      bottom: -30px;
+      animation: subir linear forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes subir {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="tarjeta">
+    <div class="flor">🌷</div>
+
+    <h1>¡Feliz Día de la Mujer Señorita!</h1>
+
+    <p>
+      Hoy es una ocasión especial para celebrar
+      la fortaleza, la valentía y la importante que eres para mi.
+    </p>
+
+    <p>
+      Que nunca falten motivos para sonreír,
+      sueños por cumplir y razones para
+      seguir brillando.
+    </p>
+
+    <button onclick="mostrarMensaje()">
+      Toca aqui xd 💗
+    </button>
+
+    <div id="mensaje">
+      <h2>Un mensaje para ti</h2>
+      <p>
+        Tu valor no depende de la opinión de nadie. Mereces respeto, las mejores oportunidades y toda la libertad para construir tu propio camino... y a mí me encantaría estar cerca para verte brillar..
+      </p>
+      <div style="font-size: 35px;">🌸 🌷 💐</div>
+    </div>
+  </main>
+
+  <script>
+    function mostrarMensaje() {
+      const mensaje = document.getElementById("mensaje");
+
+      mensaje.style.display = "block";
+
+      // Crear corazones animados
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const corazon = document.createElement("div");
+
+          corazon.className = "corazon";
+          corazon.textContent = ["💗", "🌸", "💕", "🌷"][
+            Math.floor(Math.random() * 4)
+          ];
+
+          corazon.style.left = Math.random() * 100 + "vw";
+          corazon.style.fontSize =
+            (18 + Math.random() * 20) + "px";
+
+          corazon.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+          document.body.appendChild(corazon);
+
+          setTimeout(() => corazon.remove(), 7000);
+        }, i * 100);
+      }
+    }
+  </script>
+</body>
+</html>
